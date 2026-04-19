@@ -1,13 +1,14 @@
-const CACHE_NAME = "nyrox-v1";
+const CACHE_NAME = "nyrox-v2";
 
 self.addEventListener("install", e => {
   e.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll([
-        "/",
-        "/index.html",
-        "/app.js",
-        "/manifest.json"
+        "./",
+        "./index.html",
+        "./style.css",
+        "./app.js",
+        "./manifest.json"
       ]);
     })
   );
