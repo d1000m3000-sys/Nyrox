@@ -1,21 +1,34 @@
-// تسجيل Service Worker (معدل لـ GitHub Pages)
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log("PWA شغال ✅"))
-      .catch(err => console.log("خطأ:", err));
-  });
+let currentTool = "ads";
+
+function setTool(tool){
+  currentTool = tool;
 }
 
-async function send() {
-  const input = document.getElementById("input").value;
+function addMessage(text, type){
+  const chat = document.getElementById("chat");
+  const msg = document.createElement("div");
+  msg.className = "message " + type;
+  msg.innerText = text;
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+async function send(){
+  const input = document.getElementById("input");
+  const text = input.value;
+
+  if(!text) return;
+
+  addMessage(text, "user");
+  input.value = "";
 
   const res = await fetch("./api", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({input})
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({input:text, tool:currentTool})
   });
 
   const data = await res.json();
-  document.getElementById("output").innerText = data.result;
+
+  addMessage(data.result, "bot");
 }
