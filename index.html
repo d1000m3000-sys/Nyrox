@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nyrox AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyrox AI</title>
 
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0b0f1a">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-<h1>Nyrox AI</h1>
+<div class="container">
 
-<textarea id="input"></textarea>
-<button onclick="send()">Send</button>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Nyrox</h2>
 
-<div id="output"></div>
+    <button onclick="setTool('ads')">📢 إعلان</button>
+    <button onclick="setTool('ideas')">💡 أفكار</button>
+    <button onclick="setTool('profit')">💰 أرباح</button>
+
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div id="chat" class="chat"></div>
+
+    <div class="input-area">
+      <input id="input" placeholder="اكتب هنا..." />
+      <button onclick="send()">➤</button>
+    </div>
+
+  </div>
+
+</div>
 
 <script src="app.js"></script>
 
