@@ -1,5 +1,13 @@
 let currentTool = "ads";
 
+function toggleSidebar(){
+  document.getElementById("sidebar").classList.toggle("active");
+}
+
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
 function setTool(tool){
   currentTool = tool;
 }
@@ -19,16 +27,16 @@ async function send(){
 
   if(!text) return;
 
-  addMessage(text, "user");
+  addMessage(text,"user");
   input.value = "";
 
-  const res = await fetch("./api", {
+  const res = await fetch("./api",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({input:text, tool:currentTool})
+    body:JSON.stringify({input:text, tool:currentTool})
   });
 
   const data = await res.json();
 
-  addMessage(data.result, "bot");
+  addMessage(data.result,"bot");
 }
