@@ -5,45 +5,80 @@ body {
   color:white;
 }
 
-.app {
-  max-width:600px;
-  margin:auto;
+.container {
+  display:flex;
+  height:100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width:220px;
+  background:#111827;
   padding:20px;
 }
 
-h1 {
-  text-align:center;
+.sidebar h2 {
+  margin-bottom:20px;
 }
 
-.tools button {
-  margin:5px;
+.sidebar button {
+  width:100%;
+  margin:5px 0;
+  padding:10px;
+  background:#6c5ce7;
+  border:none;
+  border-radius:8px;
+  color:white;
+}
+
+/* Main */
+.main {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Chat */
+.chat {
+  flex:1;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.message {
+  margin-bottom:10px;
+  padding:10px;
+  border-radius:10px;
+  max-width:70%;
+}
+
+.user {
+  background:#00d4ff;
+  align-self:flex-end;
+}
+
+.bot {
+  background:#1f2937;
+}
+
+/* Input */
+.input-area {
+  display:flex;
+  padding:10px;
+  background:#111827;
+}
+
+input {
+  flex:1;
   padding:10px;
   border:none;
-  background:#6c5ce7;
-  color:white;
-  border-radius:8px;
-}
-
-textarea {
-  width:100%;
-  height:120px;
-  margin-top:10px;
-  padding:10px;
   border-radius:10px;
 }
 
 button {
-  width:100%;
-  margin-top:10px;
-  padding:12px;
-  background:#00d4ff;
+  margin-left:10px;
+  padding:10px 15px;
   border:none;
   border-radius:10px;
-}
-
-#output {
-  margin-top:15px;
-  background:#111;
-  padding:10px;
-  border-radius:10px;
+  background:#00d4ff;
 }
